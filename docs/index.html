@@ -71,6 +71,13 @@
             transform: scale(1.03);
         }
         
+        /* 确保SVG在所有设备上都能正确显示 */
+        .logo-slide svg {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+        }
+        
         /* Main Content */
         .main-content {
             text-align: center;
@@ -205,6 +212,19 @@
         .hover-glow:hover::after {
             opacity: 1;
         }
+        
+        /* 添加对WebKit和iOS的额外支持 */
+        @supports (-webkit-overflow-scrolling: touch) {
+            .logo-carousel {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .logo-slide svg {
+                /* 在iOS设备上强制重绘SVG */
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -267,80 +287,80 @@
                 <line x1="50" y1="160" x2="300" y2="160" stroke="#805ad5" stroke-width="1.5"/>
                 <line x1="50" y1="163" x2="300" y2="163" stroke="#805ad5" stroke-width="0.5" opacity="0.5"/>
             </svg>`,
-            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <text x="50" y="80" font-family="Didot, 'Times New Roman', serif" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     HARRISON'S
                 </text>
                 
-                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#374151" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                <text x="50" y="140" font-family="Garamond, 'Times New Roman', serif" font-size="52" fill="#374151" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     NEWS
                 </text>
                 
-                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#e5e7eb">
+                <text x="330" y="160" font-family="Baskerville, 'Times New Roman', serif" font-size="120" fill="#e5e7eb">
                     ⟨
                 </text>
                 
                 <line x1="50" y1="160" x2="300" y2="160" stroke="#374151" stroke-width="1.5"/>
                 <line x1="50" y1="163" x2="300" y2="163" stroke="#374151" stroke-width="0.5" opacity="0.5"/>
             </svg>`,
-            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <text x="50" y="80" font-family="Didot, 'Times New Roman', serif" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     HARRISON'S
                 </text>
                 
-                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#2563eb" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                <text x="50" y="140" font-family="Garamond, 'Times New Roman', serif" font-size="52" fill="#2563eb" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     TECH
                 </text>
                 
-                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#2563eb" opacity="0.15">
+                <text x="330" y="160" font-family="Baskerville, 'Times New Roman', serif" font-size="120" fill="#2563eb" opacity="0.15">
                     {
                 </text>
                 
                 <line x1="50" y1="160" x2="300" y2="160" stroke="#2563eb" stroke-width="1.5"/>
                 <line x1="50" y1="163" x2="300" y2="163" stroke="#2563eb" stroke-width="0.5" opacity="0.5"/>
             </svg>`,
-            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <text x="50" y="80" font-family="Didot, 'Times New Roman', serif" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     HARRISON'S
                 </text>
                 
-                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#147B89" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                <text x="50" y="140" font-family="Garamond, 'Times New Roman', serif" font-size="52" fill="#147B89" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     RESEARCH
                 </text>
                 
-                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#147B89" opacity="0.15">
+                <text x="330" y="160" font-family="Baskerville, 'Times New Roman', serif" font-size="120" fill="#147B89" opacity="0.15">
                     ∆
                 </text>
                 
                 <line x1="50" y1="160" x2="300" y2="160" stroke="#147B89" stroke-width="1.5"/>
                 <line x1="50" y1="163" x2="300" y2="163" stroke="#147B89" stroke-width="0.5" opacity="0.5"/>
             </svg>`,
-            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <text x="50" y="80" font-family="Didot, 'Times New Roman', serif" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     HARRISON'S
                 </text>
                 
-                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#15803d" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                <text x="50" y="140" font-family="Garamond, 'Times New Roman', serif" font-size="52" fill="#15803d" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     FINANCE
                 </text>
                 
-                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#15803d" opacity="0.15">
+                <text x="330" y="160" font-family="Baskerville, 'Times New Roman', serif" font-size="120" fill="#15803d" opacity="0.15">
                     $
                 </text>
                 
                 <line x1="50" y1="160" x2="300" y2="160" stroke="#15803d" stroke-width="1.5"/>
                 <line x1="50" y1="163" x2="300" y2="163" stroke="#15803d" stroke-width="0.5" opacity="0.5"/>
             </svg>`,
-            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+                <text x="50" y="80" font-family="Didot, 'Times New Roman', serif" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     HARRISON'S
                 </text>
                 
-                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#e11d48" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                <text x="50" y="140" font-family="Garamond, 'Times New Roman', serif" font-size="52" fill="#e11d48" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
                     FEELING
                 </text>
                 
-                <text x="290" y="140" font-family="Baskerville" font-size="120" fill="#e11d48" opacity="0.15">
+                <text x="290" y="140" font-family="Baskerville, 'Times New Roman', serif" font-size="120" fill="#e11d48" opacity="0.15">
                     α
                 </text>
                 
@@ -353,29 +373,45 @@
         const logoSlider = document.querySelector('.logo-slider');
         
         // Create duplicate copies for seamless looping
-        const allLogos = [...logos, ...logos];
+        // 不再需要复制两次所有logo，因为我们使用了更可靠的复制机制
+        const allLogos = [...logos];
         
         // Insert logos into the slider
         allLogos.forEach(logo => {
+            // Create slides with improved SVG rendering
             const logoSlide = document.createElement('div');
             logoSlide.className = 'logo-slide';
+            
+            // 直接设置SVG作为innerHTML，确保渲染完整
             logoSlide.innerHTML = logo;
+            
+            // 添加额外检查确保SVG正确渲染
+            const svgElement = logoSlide.querySelector('svg');
+            if (svgElement) {
+                // 设置SVG属性以确保正确显示
+                svgElement.setAttribute('width', '100%');
+                svgElement.setAttribute('height', '100%');
+                svgElement.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                
+                // 添加额外的样式来确保移动设备上的渲染
+                svgElement.style.maxWidth = '100%';
+                svgElement.style.display = 'block';
+            }
+            
             logoSlider.appendChild(logoSlide);
         });
         
-        // Improved carousel animation
-        let currentPosition = 0;
+        // Completely rewritten carousel animation
         let slideWidth = 400;
-        const totalSlides = logos.length;
+        const totalOriginalSlides = logos.length;
         let isPaused = false;
-        let lastTimestamp = 0;
         
         // Auto-adjust slide width based on screen size
         function updateSlideWidth() {
             if (window.innerWidth <= 480) {
-                slideWidth = 240;
+                slideWidth = 280;
             } else if (window.innerWidth <= 768) {
-                slideWidth = 300;
+                slideWidth = 320;
             } else {
                 slideWidth = 400;
             }
@@ -383,36 +419,55 @@
         
         updateSlideWidth();
         
-        // Smoother animation with controlled speed
-        function moveSlider(timestamp) {
-            if (!lastTimestamp) lastTimestamp = timestamp;
-            const elapsed = timestamp - lastTimestamp;
+        // Use a more reliable infinite scrolling approach
+        function setupInfiniteScroll() {
+            // Clone the original slides to ensure seamless looping
+            const originalSlides = document.querySelectorAll('.logo-slide');
+            const slidesToClone = Math.min(4, originalSlides.length); // Clone a few slides
             
-            // Control speed - slower for better viewing
-            const speed = 0.06; // pixels per millisecond
-            
-            if (!isPaused) {
-                currentPosition -= speed * elapsed;
-                
-                // Reset position for seamless loop
-                if (currentPosition <= -totalSlides * slideWidth) {
-                    currentPosition = 0;
-                }
-                
-                logoSlider.style.transform = `translateX(${currentPosition}px)`;
+            // Add clones to the end
+            for (let i = 0; i < slidesToClone; i++) {
+                const clone = originalSlides[i].cloneNode(true);
+                logoSlider.appendChild(clone);
             }
             
-            lastTimestamp = timestamp;
-            requestAnimationFrame(moveSlider);
+            // Add clones to the beginning (for backward scrolling if needed)
+            for (let i = 0; i < slidesToClone; i++) {
+                const clone = originalSlides[originalSlides.length - 1 - i].cloneNode(true);
+                logoSlider.insertBefore(clone, logoSlider.firstChild);
+            }
+            
+            // Set initial position to show the first original slide (skip the prepended clones)
+            logoSlider.style.transform = `translateX(-${slidesToClone * slideWidth}px)`;
         }
         
-        // Start the animation
-        let animationReq;
+        // Smoother animation with improved implementation
+        let scrollPosition = 0;
+        let animationId = null;
         
-        // Delay start slightly to ensure DOM is ready
+        function animateCarousel() {
+            if (!isPaused) {
+                scrollPosition -= 0.5; // Slower, more controlled speed
+                
+                // Check if we need to reset
+                const maxScroll = (totalOriginalSlides + 2) * slideWidth; // +2 for the clones we added
+                
+                if (Math.abs(scrollPosition) >= maxScroll) {
+                    // Reset position without animation to create seamless loop
+                    scrollPosition = 0;
+                }
+                
+                logoSlider.style.transform = `translateX(${scrollPosition}px)`;
+            }
+            
+            animationId = requestAnimationFrame(animateCarousel);
+        }
+        
+        // Start the animation with improved initialization
         setTimeout(() => {
-            animationReq = requestAnimationFrame(moveSlider);
-        }, 1000);
+            setupInfiniteScroll();
+            animationId = requestAnimationFrame(animateCarousel);
+        }, 500);
         
         // Add pause/resume on hover for better user experience
         const carousel = document.querySelector('.logo-carousel');
@@ -431,10 +486,10 @@
         });
         
         carousel.addEventListener('touchend', () => {
-            isPaused = false;
+            setTimeout(() => { isPaused = false; }, 1000); // Delay resume to allow for scrolling
         });
         
-        // Optimize for smaller screens
+        // Optimize for smaller screens with improved handling
         function adjustForScreenSize() {
             const width = window.innerWidth;
             const carousel = document.querySelector('.logo-carousel');
@@ -459,8 +514,24 @@
                 });
             }
             
+            // Refresh SVG rendering after size change
+            document.querySelectorAll('.logo-slide svg').forEach(svg => {
+                svg.setAttribute('width', '100%');
+                svg.setAttribute('height', '100%');
+                svg.style.maxWidth = '100%';
+                svg.style.display = 'block';
+            });
+            
             // Update slide width variable for the animation
             updateSlideWidth();
+            
+            // Reset animation to ensure smooth transition after resize
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                scrollPosition = 0;
+                logoSlider.style.transform = `translateX(${scrollPosition}px)`;
+                animationId = requestAnimationFrame(animateCarousel);
+            }
         }
         
         // Adjust on load and resize
