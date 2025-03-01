@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harrison's Opinion - 即将推出</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fafafa;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(139, 0, 0, 0.02) 0%, transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(139, 0, 0, 0.02) 0%, transparent 25%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header - now empty but keeping for spacing */
+        header {
+            padding: 20px 0;
+        }
+        
+        /* Logo Carousel - Now more prominent */
+        .logo-carousel {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            margin: 40px auto 60px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            max-width: 900px;
+        }
+        
+        .logo-carousel:hover {
+            box-shadow: 0 15px 40px rgba(139, 0, 0, 0.12);
+        }
+        
+        .logo-slider {
+            display: flex;
+            position: absolute;
+            /* JS handles animation */
+        }
+        
+        .logo-slide {
+            min-width: 400px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-slide:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Main Content */
+        .main-content {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #8b0000;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #2c3e50;
+        }
+        
+        p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #718096;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(139, 0, 0, 0.08);
+            margin-top: 60px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .logo-carousel {
+                height: 180px;
+                margin: 30px auto 50px;
+            }
+            
+            .logo-slide {
+                min-width: 320px;
+                height: 180px;
+            }
+            
+            .main-content {
+                padding: 50px 0 40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-carousel {
+                height: 150px;
+            }
+            
+            .logo-slide {
+                min-width: 280px;
+                height: 150px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .main-content {
+                padding: 40px 0 30px;
+            }
+        }
+        
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+        
+        /* Enhanced hover effects */
+        .hover-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hover-glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        
+        .hover-glow:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- 顶部标志已删除，仅保留在滚动区域 -->
+        </header>
+        
+        <div class="main-content">
+            <h1 class="fade-in">敬请期待</h1>
+            <h2 class="fade-in delay-1">思想的全新表达</h2>
+            <p class="fade-in delay-2">Harrison's 项目正在精心筹备中，我们将打造一个融合深度思考、精准分析与独到见解的平台，聚焦当下热点、文化现象与社会趋势。与我们一同探索思想的力量。</p>
+        </div>
+        
+        <div class="logo-carousel fade-in delay-3 hover-glow">
+            <div class="logo-slider">
+                <!-- The SVGs will be inserted here by JavaScript -->
+            </div>
+        </div>
+        
+
+        
+        <footer>
+            <p>© 2025 Harrison's. 版权所有</p>
+        </footer>
+    </div>
+    
+    <script>
+        // SVG Logo Data
+        const logos = [
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#8b0000" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    OPINION
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#d4d4d4">
+                    "
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#8b0000" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#8b0000" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#805ad5" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    ESSAY
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#e5e7eb">
+                    §
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#805ad5" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#805ad5" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#374151" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    NEWS
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#e5e7eb">
+                    ⟨
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#374151" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#374151" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#2563eb" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    TECH
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#2563eb" opacity="0.15">
+                    {
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#2563eb" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#2563eb" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#147B89" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    RESEARCH
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#147B89" opacity="0.15">
+                    ∆
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#147B89" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#147B89" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#15803d" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    FINANCE
+                </text>
+                
+                <text x="330" y="160" font-family="Baskerville" font-size="120" fill="#15803d" opacity="0.15">
+                    $
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#15803d" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#15803d" stroke-width="0.5" opacity="0.5"/>
+            </svg>`,
+            `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+                <text x="50" y="80" font-family="Didot" font-size="42" fill="#2c3e50" font-weight="normal" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    HARRISON'S
+                </text>
+                
+                <text x="50" y="140" font-family="Garamond" font-size="52" fill="#e11d48" font-weight="normal" letter-spacing="6" style="filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.1))">
+                    FEELING
+                </text>
+                
+                <text x="290" y="140" font-family="Baskerville" font-size="120" fill="#e11d48" opacity="0.15">
+                    α
+                </text>
+                
+                <line x1="50" y1="160" x2="300" y2="160" stroke="#e11d48" stroke-width="1.5"/>
+                <line x1="50" y1="163" x2="300" y2="163" stroke="#e11d48" stroke-width="0.5" opacity="0.5"/>
+            </svg>`
+        ];
+        
+        // Initialize the logo carousel
+        const logoSlider = document.querySelector('.logo-slider');
+        
+        // Create duplicate copies for seamless looping
+        const allLogos = [...logos, ...logos];
+        
+        // Insert logos into the slider
+        allLogos.forEach(logo => {
+            const logoSlide = document.createElement('div');
+            logoSlide.className = 'logo-slide';
+            logoSlide.innerHTML = logo;
+            logoSlider.appendChild(logoSlide);
+        });
+        
+        // Improved carousel animation
+        let currentPosition = 0;
+        let slideWidth = 400;
+        const totalSlides = logos.length;
+        let isPaused = false;
+        let lastTimestamp = 0;
+        
+        // Auto-adjust slide width based on screen size
+        function updateSlideWidth() {
+            if (window.innerWidth <= 480) {
+                slideWidth = 240;
+            } else if (window.innerWidth <= 768) {
+                slideWidth = 300;
+            } else {
+                slideWidth = 400;
+            }
+        }
+        
+        updateSlideWidth();
+        
+        // Smoother animation with controlled speed
+        function moveSlider(timestamp) {
+            if (!lastTimestamp) lastTimestamp = timestamp;
+            const elapsed = timestamp - lastTimestamp;
+            
+            // Control speed - slower for better viewing
+            const speed = 0.06; // pixels per millisecond
+            
+            if (!isPaused) {
+                currentPosition -= speed * elapsed;
+                
+                // Reset position for seamless loop
+                if (currentPosition <= -totalSlides * slideWidth) {
+                    currentPosition = 0;
+                }
+                
+                logoSlider.style.transform = `translateX(${currentPosition}px)`;
+            }
+            
+            lastTimestamp = timestamp;
+            requestAnimationFrame(moveSlider);
+        }
+        
+        // Start the animation
+        let animationReq;
+        
+        // Delay start slightly to ensure DOM is ready
+        setTimeout(() => {
+            animationReq = requestAnimationFrame(moveSlider);
+        }, 1000);
+        
+        // Add pause/resume on hover for better user experience
+        const carousel = document.querySelector('.logo-carousel');
+        
+        carousel.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            isPaused = false;
+        });
+        
+        // Add touch support for mobile devices
+        carousel.addEventListener('touchstart', () => {
+            isPaused = true;
+        });
+        
+        carousel.addEventListener('touchend', () => {
+            isPaused = false;
+        });
+        
+        // Optimize for smaller screens
+        function adjustForScreenSize() {
+            const width = window.innerWidth;
+            const carousel = document.querySelector('.logo-carousel');
+            
+            if (width <= 480) {
+                carousel.style.height = '150px';
+                document.querySelectorAll('.logo-slide').forEach(slide => {
+                    slide.style.minWidth = '280px';
+                    slide.style.height = '150px';
+                });
+            } else if (width <= 768) {
+                carousel.style.height = '180px';
+                document.querySelectorAll('.logo-slide').forEach(slide => {
+                    slide.style.minWidth = '320px';
+                    slide.style.height = '180px';
+                });
+            } else {
+                carousel.style.height = '220px';
+                document.querySelectorAll('.logo-slide').forEach(slide => {
+                    slide.style.minWidth = '400px';
+                    slide.style.height = '220px';
+                });
+            }
+            
+            // Update slide width variable for the animation
+            updateSlideWidth();
+        }
+        
+        // Adjust on load and resize
+        window.addEventListener('load', adjustForScreenSize);
+        window.addEventListener('resize', adjustForScreenSize);
+    </script>
+</body>
+</html>
